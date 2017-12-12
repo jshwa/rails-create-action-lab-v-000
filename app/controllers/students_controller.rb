@@ -13,7 +13,10 @@ class StudentsController < ApplicationController
 
   def create
     binding.pry
-    @student = Student.create(first_name: params[:first][:name], last_name: params[:last][:name])
+    @student = Student.new
+    @student.first_name = params[:first][:name]
+    @student.last_name = params[:last][:name])
+    @student.save
     redirect_to student_path(@student)
   end
 
